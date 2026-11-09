@@ -1,0 +1,7 @@
+build/
+target/
+tmp/
+*.log
+.DS_Store
+.venv/
+Copy of IF2010 Spesifikasi Tugas Besar.pdf

@@ -1,0 +1,79 @@
+classDiagram
+direction TB
+class Entity {
+  <<abstract>>
+  long id
+  Position position
+}
+class Player {
+  int lives
+  int bombCapacity
+  int blastRange
+  collect(PowerUpType)
+}
+class Enemy {
+  <<abstract>>
+  int health
+  int scoreValue
+  update(GameEngine)*
+}
+class Bomb {
+  <<abstract>>
+  int range
+  long owner
+  boolean armed
+  due(long)*
+}
+Entity <|-- Player
+Entity <|-- Enemy
+Entity <|-- Bomb
+Entity <|-- Explosion
+Enemy <|-- NormalEnemy
+Enemy <|-- Draco
+Bomb <|-- NormalBomb
+Bomb <|-- PumpedBomb
+Bomb <|-- RemoteBomb
+class MovementStrategy {
+  <<interface>>
+  next(NormalEnemy, GameEngine) Position
+}
+MovementStrategy <|.. PatrolStrategy
+MovementStrategy <|.. ChaseStrategy
+NormalEnemy --> MovementStrategy
+Draco --> AttackPattern
+BombType ..> Bomb : factory method create
+Explosion --> BombType
+class EntityStore~T~ {
+  add(T)
+  all() List~T~
+  removeIf(Predicate~T~)
+}
+class GameEngine {
+  accept(GameCommand)
+  pulse()
+  snapshot() GameSnapshot
+}
+GameEngine *-- Player
+GameEngine *-- EntityStore
+GameEngine --> MapDefinition
+GameEngine --> NanoClock
+GameEngine --> GameSnapshot
+class GameCommand {
+  <<interface>>
+  execute(GameEngine)
+}
+GameCommand <|.. Move
+GameCommand <|.. Select
+GameCommand <|.. Action
+KeyboardReader --> CommandQueue : produces keys
+GameLoop --> CommandQueue : consumes keys
+GameLoop --> KeyBindings
+KeyBindings ..> GameCommand
+GameLoop --> GameEngine
+GameLoop --> Renderer
+Renderer <|.. TerminalRenderer
+TerminalRenderer --> GameSnapshot
+Main --> RawTerminal
+Main --> KeyboardReader
+Main --> GameLoop
+MapDefinition ..> MapValidationException
