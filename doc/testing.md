@@ -23,7 +23,7 @@ Pengujian terminal pertama ditolak sandbox pada ioctl `stty` (`TIOCGETD: Operati
 - Pause membekukan tampilan, waktu, dan bomb selama 3,8 detik; resume meneruskan fuse tersisa.
 - R mengembalikan kondisi awal, M kembali ke menu, Q pada pause keluar.
 - Pengaturan `ICANON`, `ECHO`, serta seluruh atribut terminal sebelum dan setelah proses dibandingkan dan sama.
-- Arrow sequence diuji lewat KeyboardReader; pemetaan jenis bomb dan Q diuji melalui engine/loop.
+- Arrow sequence diuji lewat KeyboardReader dan seluruh arah di KeyBindings; panah kanan juga dipakai pada uji PTY nyata. Pemetaan jenis bomb dan Q diuji melalui engine/loop.
 
 ## Delivery gate desain yang relevan
 
@@ -32,5 +32,6 @@ Pengujian terminal pertama ditolak sandbox pada ioctl `stty` (`TIOCGETD: Operati
 - PASS, kejujuran: status fitur bersumber pada test; nama/NIM/riwayat kosong diberi placeholder. Tidak ada klaim kontribusi fiktif.
 - PASS, keterbacaan: ASCII dan tema/kontras bawaan terminal; semua kontrol memakai keyboard; pause menghentikan animasi game.
 - PASS, build/run: lint tanpa warning, suite Java dan PTY lulus. Aturan web seperti mobile viewport, DOM/ARIA, hover, dan gambar hero tidak berlaku untuk CLI ini.
+- PASS, PDF: buklet 10 halaman A5, diagram 2 halaman, pembagian tugas 1 halaman, log activity 2 halaman. Ukuran/jumlah halaman diperiksa dengan pypdf dan seluruh halaman dirender untuk inspeksi visual. Tumpang tindih kotak diagram pada draft diperbaiki sebelum PDF final.
 
 Keterbatasan: satu seed campaign, satu platform terminal, belum ada uji manusia. Maven opsional belum dijalankan. Tidak mengklaim coverage persentase atau kompatibilitas semua terminal.

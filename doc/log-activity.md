@@ -1,6 +1,6 @@
 # Log activity anggota
 
-Isi berdasarkan pekerjaan nyata setiap anggota, lalu regenerasi PDF. Baris kosong ini bukan riwayat pengerjaan.
+Isi berdasarkan pekerjaan nyata setiap anggota, sesuaikan juga bagian activity() di scripts/build_docs.py, lalu regenerasi PDF. Baris kosong ini bukan riwayat pengerjaan.
 
 ## [NAMA 1] / [NIM 1]
 
