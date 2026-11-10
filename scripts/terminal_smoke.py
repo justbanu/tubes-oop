@@ -56,9 +56,10 @@ try:
     assert not raw[3] & termios.ICANON and not raw[3] & termios.ECHO, "Terminal is not raw"
     key("x"); expect("Input tidak valid")
     key("2"); expect("Draco rentan")
-    key("m"); key("1"); expect("PLAYING Nyawa 3/5")
+    key("m"); key("1"); expect("PLAYING"); expect("Nyawa 3/5")
     key("\x1b[C", 0.35); expect("Power-up: REMOTE")
-    key("b", 0.1); expect("Bomb NORMAL 1/1")
+    key("b", 0.1)
+    assert re.search(r"Bomb NORMAL\s+1/1", text()), "Bomb capacity not displayed"
     key("a", 0.35); key("s", 0.35)
     key("p"); expect("PAUSED:")
     pause_time = re.findall(r"Waktu (\d+)s", text())[-1]
@@ -66,7 +67,8 @@ try:
     read_for(3.8)
     assert len(output) == checkpoint, "Paused display changed as time advanced"
     assert re.findall(r"Waktu (\d+)s", text())[-1] == pause_time
-    key("p", 3.1); expect("Bomb NORMAL 0/1")
+    key("p", 3.1)
+    assert re.search(r"Bomb NORMAL\s+0/1", text()), "Bomb capacity not restored"
     key("p"); key("r"); expect("Waktu 300s")
     key("p"); key("m"); key("3")
     for _ in range(30):

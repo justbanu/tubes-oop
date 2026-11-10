@@ -23,6 +23,7 @@ build/test-classes/.stamp: build/nangor-blast.jar $(TESTS)
 test: build/test-classes/.stamp
 	$(JAVA) -ea -cp build/classes:build/test-classes nangor.core.RulesTest
 	$(JAVA) -ea -cp build/classes:build/test-classes nangor.core.IntegrationTest
+	$(JAVA) -ea -cp build/classes:build/test-classes nangor.core.TerminalRendererTest
 	$(JAVA) -ea -cp build/classes:build/test-classes nangor.core.CampaignTest
 
 integration: build/test-classes/.stamp
