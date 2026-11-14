@@ -131,12 +131,14 @@ pom.xml                konfigurasi impor/build Maven opsional
 
 Empat PDF siap ditinjau: [buklet A5, 10 halaman](doc/buklet.pdf), [class diagram](doc/class-diagram.pdf), [pembagian tugas](doc/pembagian-tugas.pdf), [log activity](doc/log-activity.pdf). Sumber yang dapat diedit ada di `scripts/build_docs.py`, `doc/class-diagram.mmd`, dan dokumen Markdown. Untuk regenerasi: buat virtualenv, instal `scripts/requirements-docs.txt`, lalu `make docs`. Dependency PDF hanya untuk dokumentasi, bukan runtime game.
 
-| Anggota | Pembagian tugas yang direncanakan |
+| Anggota | Fitur dan fokus rencana |
 |---|---|
-| Natasha Aurellia | Player, kontrol/input, dan alur game |
-| Banu Agil Triyanto | Bomb, explosion, block, dan power-up |
-| Muhammad Rizqi Azhar | Normal enemy, boss Draco, map, dan validasi |
-| Herlambang Setiaji Prabowo | Tampilan terminal, integrasi, pengujian, dan dokumentasi |
+| Natasha Aurellia | F01 Player; F09 command dan transisi state |
+| Banu Agil Triyanto | F02 Bomb; F03 Explosion; F04 Block; F06 Power-up |
+| Muhammad Rizqi Azhar | F00 Inisialisasi/validasi; F05 Normal Enemy/Draco; F07 Map |
+| Herlambang Setiaji Prabowo | F08 Score; F09 tampilan; integrasi, pengujian, dokumentasi |
+
+F09 dibagi antara transisi game (Natasha) dan tampilan/uji alur (Herlambang). Source saat ini sudah mengimplementasikan F00-F09; tabel ini adalah rencana kepemilikan review/perbaikan, bukan klaim kontribusi historis. Rincian file, branch, urutan merge/push, dan persiapan repo resmi ada di [rencana pembagian tugas](doc/pembagian-tugas.md).
 
 Nomor kelompok, NIM, asisten pembimbing, dan riwayat kontribusi tidak dicantumkan di sini. Tabel di atas adalah rencana pembagian tanggung jawab, bukan klaim kontribusi yang telah dilakukan.
 
