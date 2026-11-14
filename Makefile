@@ -7,7 +7,7 @@ TESTS := $(shell find src/test/java -name '*.java')
 all: build
 build: build/nangor-blast.jar
 
-build/nangor-blast.jar: $(SOURCES) config/green-garden.map config/green-garden.properties
+build/nangor-blast.jar: $(SOURCES) config/space-station.map config/space-station.properties
 	mkdir -p build/classes
 	$(JAVAC) --release 17 -Xlint:all -Werror -d build/classes $(SOURCES)
 	jar --create --file $@ --main-class nangor.Main -C build/classes . -C . config

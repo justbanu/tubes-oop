@@ -48,7 +48,7 @@ public final class RulesTest {
     private static Rig playing() throws Exception { Rig r = new Rig(); r.start(); return r; }
     private static Rig isolated() throws Exception { Rig r = playing(); r.isolate(); return r; }
     private static Properties properties() throws Exception {
-        Properties p = new Properties(); try (var in = Files.newInputStream(Path.of("config/green-garden.properties"))) { p.load(in); } return p;
+        Properties p = new Properties(); try (var in = Files.newInputStream(Path.of("config/space-station.properties"))) { p.load(in); } return p;
     }
     private static void rejects(List<String> rows, Properties p) throws Exception {
         try { MapDefinition.parse(rows, p); throw new AssertionError("Invalid map accepted"); }
@@ -65,7 +65,7 @@ public final class RulesTest {
         check(g.bombs.size() == 0 && g.explosions.size() == 0, "empty bombs and flames");
     }
     private static void validation() throws Exception {
-        List<String> rows = Files.readAllLines(Path.of("config/green-garden.map"));
+        List<String> rows = Files.readAllLines(Path.of("config/space-station.map"));
         rejects(rows.subList(0, 9), properties());
         List<String> wrong = new ArrayList<>(rows); wrong.set(1, wrong.get(1).replace('P', '.')); rejects(wrong, properties());
         wrong = new ArrayList<>(rows); wrong.set(1, wrong.get(1).replace('X', 'G')); rejects(wrong, properties());

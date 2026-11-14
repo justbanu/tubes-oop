@@ -37,11 +37,11 @@ public final class MapDefinition {
 
     public static MapDefinition load(Path directory) throws MapValidationException {
         try (InputStream map = directory == null
-                ? MapDefinition.class.getResourceAsStream("/config/green-garden.map")
-                : Files.newInputStream(directory.resolve("green-garden.map"));
+                ? MapDefinition.class.getResourceAsStream("/config/space-station.map")
+                : Files.newInputStream(directory.resolve("space-station.map"));
              InputStream settings = directory == null
-                ? MapDefinition.class.getResourceAsStream("/config/green-garden.properties")
-                : Files.newInputStream(directory.resolve("green-garden.properties"))) {
+                ? MapDefinition.class.getResourceAsStream("/config/space-station.properties")
+                : Files.newInputStream(directory.resolve("space-station.properties"))) {
             if (map == null || settings == null) throw new IOException("Konfigurasi tidak ditemukan");
             Properties properties = new Properties(); properties.load(settings);
             return parse(new String(map.readAllBytes(), StandardCharsets.UTF_8).lines().toList(), properties);

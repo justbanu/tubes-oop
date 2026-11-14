@@ -19,7 +19,7 @@ java -jar build/nangor-blast.jar --seed 17 --config config
 java -jar build/nangor-blast.jar --help
 ```
 
-JAR menyertakan konfigurasi bawaan. `--config DIR` memuat `green-garden.map` dan `green-garden.properties` dari direktori tersebut; nama file dipertahankan agar pemuatan konfigurasi tetap kompatibel. File yang hilang/invalid menghasilkan pesan kesalahan dan exit code 1. Jangan mengubah susunan map yang dikumpulkan.
+JAR menyertakan konfigurasi bawaan. `--config DIR` memuat `space-station.map` dan `space-station.properties` dari direktori tersebut. File yang hilang/invalid menghasilkan pesan kesalahan dan exit code 1. Jangan mengubah susunan map yang dikumpulkan.
 
 `make clean` membersihkan hasil build. `pom.xml` juga disediakan untuk impor IDE/Maven; jalur build dan pengujian yang telah diverifikasi adalah Makefile. `mvn package` bukan pengganti `make test`: suite pengujian ini memakai runner Java mandiri.
 
