@@ -131,15 +131,14 @@ pom.xml                konfigurasi impor/build Maven opsional
 
 Empat PDF siap ditinjau: [buklet A5, 10 halaman](doc/buklet.pdf), [class diagram](doc/class-diagram.pdf), [pembagian tugas](doc/pembagian-tugas.pdf), [log activity](doc/log-activity.pdf). Sumber yang dapat diedit ada di `scripts/build_docs.py`, `doc/class-diagram.mmd`, dan dokumen Markdown. Untuk regenerasi: buat virtualenv, instal `scripts/requirements-docs.txt`, lalu `make docs`. Dependency PDF hanya untuk dokumentasi, bukan runtime game.
 
-| Anggota | Nama / NIM | Pembagian tanggung jawab yang diusulkan, belum disahkan |
-|---|---|---|
-| 1 | `[NAMA 1]` / `[NIM 1]` | Model, player, input, game loop |
-| 2 | `[NAMA 2]` / `[NIM 2]` | Bomb, explosion, block, power-up |
-| 3 | `[NAMA 3]` / `[NIM 3]` | Normal enemy, Draco, map dan validasi |
-| 4 | `[NAMA 4]` / `[NIM 4]` | Terminal, menu, integrasi, QA dan dokumentasi |
-| 5 (opsional) | `[NAMA 5]` / `[NIM 5]` | Pengujian/review dan koordinasi dokumen, sesuaikan jika kelompok 5 orang |
+| Anggota | Pembagian tugas yang direncanakan |
+|---|---|
+| Natasha Aurellia | Player, kontrol/input, dan alur game |
+| Banu Agil Triyanto | Bomb, explosion, block, dan power-up |
+| Muhammad Rizqi Azhar | Normal enemy, boss Draco, map, dan validasi |
+| Herlambang Setiaji Prabowo | Tampilan terminal, integrasi, pengujian, dan dokumentasi |
 
-Nomor/nama kelompok, asisten, anggota, riwayat kontribusi, bukti rapat/asistensi, dan rancangan awal kelompok masih **placeholder**. Tabel di atas adalah usulan tanggung jawab, bukan klaim bahwa anggota tersebut mengerjakan kode. Log pekerjaan sesi ini dipisahkan di [development-notes.md](doc/development-notes.md); jangan menyalinnya menjadi riwayat anggota.
+Nomor kelompok, NIM, asisten pembimbing, dan riwayat kontribusi tidak dicantumkan di sini. Tabel di atas adalah rencana pembagian tanggung jawab, bukan klaim kontribusi yang telah dilakukan.
 
 Folder awal tidak memiliki `.git`. Tidak ada commit, push, undangan asisten, publikasi repository, atau GitHub release yang dibuat. Setelah identitas dan dokumen dilengkapi, kelompok dapat menginisialisasi Git dan melakukan pengumpulan sesuai PDF. Rujukan tanggal pengumpulan tetap berada pada PDF asli; aplikasi ini tidak melakukan pengumpulan otomatis.
 
