@@ -12,14 +12,14 @@ public final class TerminalRenderer implements Renderer {
 
     public static String text(GameSnapshot s) {
         StringBuilder b = new StringBuilder();
-        b.append(String.format("%-48s GREEN GARDEN / MAP A%n", "NANGOR BLAST"));
+        b.append(String.format("%-48s STASIUN NANGOR / MAP A%n", "NANGOR BLAST: STASIUN LUAR ANGKASA"));
         if (s.state() == GameState.MENU) {
             b.append("MENU\n\n")
              .append("  1  Start Game\n  2  How to Play\n  3  Exit\n\n")
              .append("Pesan: ").append(s.message()).append('\n');
         } else if (s.state() == GameState.HELP) {
             b.append("HOW TO PLAY\n\n")
-             .append("Kalahkan 5 Normal Enemy dan Draco, lalu capai X dalam 300 detik.\n\n")
+             .append("Kalahkan 5 Normal Enemy dan Draco, lalu amankan airlock X dalam 300 detik.\n\n")
              .append("KONTROL\n")
              .append("  WASD / panah  Gerak                 B / Spasi  Pasang bomb\n")
              .append("  1 Normal      2 / E Pumped          3 Remote (setelah ambil r)\n")
@@ -30,8 +30,8 @@ public final class TerminalRenderer implements Renderer {
              .append("  Draco rentan 4 dtk setelah Fire Breath atau Swoop.\n")
              .append("  Ledakan menyakiti Deeper; setelah respawn kebal 1,5 dtk.\n\n")
              .append("LEGENDA MAP\n")
-             .append("  P Deeper   p kebal    E Enemy    B Draco    X Exit     . jalan\n")
-             .append("  # dinding  D rapuh    R kuat (hanya Pumped)\n")
+             .append("  P Deeper   p kebal    E Enemy    B Draco    X airlock   . koridor\n")
+             .append("  # hull     D peti     R bulkhead kuat (hanya Pumped)\n")
              .append("  o Normal   O Pumped   @ Remote   * ledakan\n")
              .append("  ! warning  ^ serangan Draco\n")
              .append("  + Bomb Up  f Fire Up  s Speed Up  r Remote  h Heart\n\n")

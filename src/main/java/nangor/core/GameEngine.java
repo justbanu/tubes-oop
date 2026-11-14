@@ -30,7 +30,7 @@ public final class GameEngine {
     final Map<Position, Block> blocks = new LinkedHashMap<>();
     final Map<Position, PowerUpType> powerUps = new LinkedHashMap<>();
     int score;
-    String message = "Selamat datang di Green Garden.";
+    String message = "Selamat datang di Stasiun Nangor.";
 
     public GameEngine(MapDefinition definition, RandomGenerator random, NanoClock clock) {
         this.definition = java.util.Objects.requireNonNull(definition);
@@ -229,7 +229,7 @@ public final class GameEngine {
         if (player.lives <= 0 || now >= LIMIT) { state = GameState.LOSE; message = player.lives <= 0 ? "Nyawa habis." : "Waktu habis."; }
         else if (player.position.equals(definition.exit) && enemies.all().stream().noneMatch(Enemy::alive)) {
             score += player.lives * 100 + secondsLeft() * 10;
-            state = GameState.WIN; message = "Green Garden berhasil diselamatkan!";
+            state = GameState.WIN; message = "Stasiun Nangor berhasil diamankan!";
         }
     }
 

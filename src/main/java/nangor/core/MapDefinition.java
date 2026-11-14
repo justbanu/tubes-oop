@@ -68,7 +68,7 @@ public final class MapDefinition {
         }
         if (players.size() != 1 || bosses.size() != 1 || exits.size() != 1 || spawns.size() != 5)
             throw new MapValidationException("Diperlukan tepat 1 P, 5 E, 1 B, dan 1 X");
-        if (destructible == 0 || reinforced == 0) throw new MapValidationException("Green Garden memerlukan D dan R");
+        if (destructible == 0 || reinforced == 0) throw new MapValidationException("Map A memerlukan block D dan R");
         try {
             Position remote = position(settings.getProperty("remote"));
             int[] a = java.util.Arrays.stream(settings.getProperty("arena", "").split(",")).mapToInt(Integer::parseInt).toArray();

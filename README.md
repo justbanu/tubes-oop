@@ -1,6 +1,8 @@
-# Nangor Blast: Green Garden (Map A)
+# Nangor Blast: Stasiun Luar Angkasa (Map A)
 
 Game Java CLI untuk satu pemain, berdasarkan seluruh 61 halaman **Copy of IF2010 Spesifikasi Tugas Besar.pdf**, versi 1.0. Layout 14 x 10 disalin dari halaman 39, aturan Draco dari halaman 30. Hanya map A yang diimplementasikan. Mekanisme lingkungannya adalah Reinforced Block; gate, air, lava, es, dan laser bukan bagian map A.
+
+Tema tampilan adalah Stasiun Nangor: `#` hull, `D` peti kargo, `R` bulkhead berlapis, dan `X` airlock keluar. Ini hanya perubahan narasi; susunan 140 tile dan aturan map A tetap mengikuti spesifikasi.
 
 ## Build dan jalankan
 
@@ -17,7 +19,7 @@ java -jar build/nangor-blast.jar --seed 17 --config config
 java -jar build/nangor-blast.jar --help
 ```
 
-JAR menyertakan konfigurasi bawaan. `--config DIR` memuat `green-garden.map` dan `green-garden.properties` dari direktori tersebut; file yang hilang/invalid menghasilkan pesan kesalahan dan exit code 1. Jangan mengubah susunan map yang dikumpulkan.
+JAR menyertakan konfigurasi bawaan. `--config DIR` memuat `green-garden.map` dan `green-garden.properties` dari direktori tersebut; nama file dipertahankan agar pemuatan konfigurasi tetap kompatibel. File yang hilang/invalid menghasilkan pesan kesalahan dan exit code 1. Jangan mengubah susunan map yang dikumpulkan.
 
 `make clean` membersihkan hasil build. `pom.xml` juga disediakan untuk impor IDE/Maven; jalur build dan pengujian yang telah diverifikasi adalah Makefile. `mvn package` bukan pengganti `make test`: suite pengujian ini memakai runner Java mandiri.
 
@@ -37,7 +39,7 @@ Terminal membaca tombol tanpa Enter dengan `stty -icanon -echo`. Pengaturan asli
 | WIN / LOSE | R, M, Q | Restart, menu, keluar |
 | Petunjuk | Tombol apa pun | Kembali ke menu |
 
-Tujuan: kalahkan lima Normal Enemy dan Draco, kemudian masuk `X` sebelum 300 detik habis. Player mulai dengan 3 nyawa, kapasitas 1 bomb, dan jangkauan 1. `P` adalah player, `p` player kebal, `E` musuh biasa, `B` Draco. `#`, `D`, `R` adalah block permanen, destructible, reinforced. `o`, `O`, `@` menunjukkan Normal/Pumped/Remote Bomb; `!` peringatan boss, `^` jalur/area serangan, `*` ledakan.
+Tujuan: kalahkan lima Normal Enemy dan Draco, kemudian masuk airlock `X` sebelum 300 detik habis. Player mulai dengan 3 nyawa, kapasitas 1 bomb, dan jangkauan 1. `P` adalah player, `p` player kebal, `E` musuh biasa, `B` Draco. `#`, `D`, `R` adalah hull, peti kargo, dan bulkhead reinforced. `o`, `O`, `@` menunjukkan Normal/Pumped/Remote Bomb; `!` peringatan boss, `^` jalur/area serangan, `*` ledakan.
 
 Normal meledak setelah 3 detik; Pumped 4,5 detik dengan jangkauan +2 dan damage boss 2. Remote tidak memiliki fuse dan dibuka dengan mengambil `r` di sebelah spawn. Semua ledakan berlangsung 0,5 detik. Bomb yang sudah dipasang tidak berubah jenis saat pilihan diganti. Kapasitas baru kembali setelah ledakannya selesai. Player boleh meninggalkan bomb yang dipasangnya tetapi tidak bisa masuk kembali.
 
