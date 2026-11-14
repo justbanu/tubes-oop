@@ -5,3 +5,8 @@ tmp/
 .DS_Store
 .venv/
 Copy of IF2010 Spesifikasi Tugas Besar.pdf
+
+# Keep these working documents local; do not publish them to GitHub.
+/doc/
+/scripts/
+/milestone-01/
