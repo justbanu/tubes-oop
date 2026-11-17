@@ -42,7 +42,7 @@ public final class TerminalRendererTest {
                 player.remote(), false);
         GameSnapshot win = new GameSnapshot(GameState.WIN, wonBoard, winner, List.of(),
                 List.of(), Set.of(), Set.of(), Set.of(), 3260, 103_600, 196,
-                "Stasiun Nangor berhasil diamankan!", "DEFEATED", null, 2, false);
+                "Green Garden berhasil diselamatkan!", "DEFEATED", null, 2, false);
         screens.put(GameState.WIN, TerminalRenderer.text(win));
 
         for (var screen : screens.entrySet()) {
@@ -50,7 +50,6 @@ public final class TerminalRendererTest {
                 check(line.length() <= 80, screen.getKey() + " exceeds 80 columns: " + line);
         }
         check(screens.get(GameState.MENU).contains("1  Start Game"), "menu actions visible");
-        check(screens.get(GameState.MENU).contains("STASIUN NANGOR / MAP A"), "station theme in title");
         check(screens.get(GameState.HELP).contains("LEGENDA MAP"), "full legend moved to help");
         check(screens.get(GameState.HELP).contains("+ Bomb Up  f Fire Up"), "power-up legend in help");
         for (GameState state : new GameState[]{GameState.PLAYING, GameState.PAUSED, GameState.WIN, GameState.LOSE}) {

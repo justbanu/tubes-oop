@@ -37,11 +37,11 @@ public final class MapDefinition {
 
     public static MapDefinition load(Path directory) throws MapValidationException {
         try (InputStream map = directory == null
-                ? MapDefinition.class.getResourceAsStream("/config/space-station.map")
-                : Files.newInputStream(directory.resolve("space-station.map"));
+                ? MapDefinition.class.getResourceAsStream("/config/green-garden.map")
+                : Files.newInputStream(directory.resolve("green-garden.map"));
              InputStream settings = directory == null
-                ? MapDefinition.class.getResourceAsStream("/config/space-station.properties")
-                : Files.newInputStream(directory.resolve("space-station.properties"))) {
+                ? MapDefinition.class.getResourceAsStream("/config/green-garden.properties")
+                : Files.newInputStream(directory.resolve("green-garden.properties"))) {
             if (map == null || settings == null) throw new IOException("Konfigurasi tidak ditemukan");
             Properties properties = new Properties(); properties.load(settings);
             return parse(new String(map.readAllBytes(), StandardCharsets.UTF_8).lines().toList(), properties);
@@ -68,7 +68,7 @@ public final class MapDefinition {
         }
         if (players.size() != 1 || bosses.size() != 1 || exits.size() != 1 || spawns.size() != 5)
             throw new MapValidationException("Diperlukan tepat 1 P, 5 E, 1 B, dan 1 X");
-        if (destructible == 0 || reinforced == 0) throw new MapValidationException("Map A memerlukan block D dan R");
+        if (destructible == 0 || reinforced == 0) throw new MapValidationException("Green Garden memerlukan D dan R");
         try {
             Position remote = position(settings.getProperty("remote"));
             int[] a = java.util.Arrays.stream(settings.getProperty("arena", "").split(",")).mapToInt(Integer::parseInt).toArray();
